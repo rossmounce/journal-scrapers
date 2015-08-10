@@ -2,8 +2,8 @@
   "url": "ijs\\.sgmjournals\\.org",
   "followables": {
     "fulltext_expansion": {
-      "selector": "//div[@id='itemFullTextId']",
-      "attribute": "data-fulltexturl"
+      "selector": "//li[@id='articlefulltext']/a",
+      "attribute": "href"
     },
     "figure_expansion": {
       "selector": "//div[@id='tab3']",
@@ -18,63 +18,71 @@
     "publisher": {
       "selector": "//meta[@name='dc.publisher']",
       "attribute": "content"
-    },
-    "journal": {
+      },
+    "journal_name": {
       "selector": "//meta[@name='citation_journal_title']",
       "attribute": "content"
-    },
-    "title": {
-      "selector": "//meta[@name='citation_title']",
+      },
+    "journal_issn": {
+      "selector": "//meta[@name='citation_issn']",
       "attribute": "content"
-    },
-    "authors": {
-      "selector": "//meta[@name='citation_author']",
-      "attribute": "content"
-    },
-    "date": {
-      "selector": "//meta[@name='citation_publication_date']",
-      "attribute": "content"
-    },
-    "doi": {
-      "selector": "//meta[@name='citation_doi']",
-      "attribute": "content"
-    },
+      },
     "volume": {
       "selector": "//meta[@name='citation_volume']",
       "attribute": "content"
-    },
+      },
     "issue": {
       "selector": "//meta[@name='citation_issue']",
       "attribute": "content"
-    },
+      },
     "firstpage": {
       "selector": "//meta[@name='citation_firstpage']",
       "attribute": "content"
-    },
+      },
+    "title": {
+      "selector": "//meta[@name='citation_title']",
+      "attribute": "content"
+      },
     "abstract": {
       "selector": "//meta[@name='citation_abstract']",
       "attribute": "content"
-    },
-    "fulltext_html": {
-      "follow": "fulltext_expansion",
-      "selector": "//html",
-      "download": {
-        "rename": "fulltext.html"
-      }
-    },
+      },
+    "author_name": {
+      "selector": "//meta[@name='citation_author']",
+      "attribute": "content"
+      },
+    "author_institution": {
+      "selector": "//meta[@name='citation_author_institution']",
+      "attribute": "content"
+      },
+    "date_published": {
+      "selector": "//meta[@name='citation_publication_date']",
+      "attribute": "content"
+      },
+    "doi": {
+      "selector": "//meta[@name='citation_doi']",
+      "attribute": "content"
+      },
     "fulltext_pdf": {
-      "selector": "//a[@rel='external'][2]",
+      "selector": "//a[@class='externallink pdf list-group-item list-group-item-info']",
       "attribute": "href",
       "download": {
         "rename": "fulltext.pdf"
-      }
-    },
+        }
+      },
+    "fulltext_html": {
+      "selector": "//a[@class='html list-group-item list-group-item-info']",
+      "attribute": "href",
+      "download": {
+        "rename": "fulltext.html"
+        }
+      },
     "supplementary_material": {
       "follow": "suppdata_expansion",
-      "selector": "//a[@rel='external']",
+      "selector": "//a[@rel='externallink pdf list-group-item list-group-item-info']",
       "attribute": "href",
       "download": true
-    },
+      },
     "figure": {
       "follow": "figure_expansion",
       "selector": "//div[@class='modal-body']/div/img",
@@ -86,13 +94,18 @@
       "selector": "//div[@class='metadata_description']",
       "attribute": "text"
     },
+    "introduction_text": {
+      "follow": "fulltext_expansion",
+      "selector": "//div[@class='articleSection']//p",
+      "attribute": "text"
+      },
     "license": {
-      "selector": "//div[contains(@class, 'license')]",
+      "selector": "//li//a[contains(@href, 'license')]",
       "attribute": "text"
-    },
+      },
     "copyright": {
-      "selector": "//div/p[contains(@class, 'copyright')]",
+      "selector": "//p[contains(., 'copyright') or contains(., '©')]",
       "attribute": "text"
-    }
-  }
+      }
+   }
 }
