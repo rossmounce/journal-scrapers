@@ -96,9 +96,24 @@
     },
     "introduction_text": {
       "follow": "fulltext_expansion",
-      "selector": "//div[@class='articleSection']//p",
+      "selector": "//div[@class='articleSection' and [div/div/div/a[contains(@name, 'introduction')]]",
       "attribute": "text"
-      },
+    },
+    "introduction_text": {
+      "follow": "fulltext_expansion",
+      "selector": "//div[@class='articleSection' and [div/div/div/a[contains(@name, 'methods')]]",
+      "attribute": "text"
+    },
+    "introduction_text": {
+      "follow": "fulltext_expansion",
+      "selector": "//div[@class='articleSection' and [div/div/div/a[contains(@name, 'resultsanddiscussion')]]",
+      "attribute": "text"
+    },
+    "introduction_text": {
+      "follow": "fulltext_expansion",
+      "selector": "//div[@class='articleSection' and [div/div/div/a[contains(@name, 'acknowledgement')]]",
+      "attribute": "text"
+    },
     "license": {
       "selector": "//li//a[contains(@href, 'license')]",
       "attribute": "text"
